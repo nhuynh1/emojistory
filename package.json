@@ -1,0 +1,14 @@
+{
+  "name": "giraffe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "browser-sync start --server 'app' --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --port 7777 --browser 'Firefox Developer Edition'"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.7"
+  }
+}
