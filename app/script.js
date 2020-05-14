@@ -1,41 +1,88 @@
-const navToggle = document.querySelector('.nav-toggle');
-const menu = document.querySelector('.menu');
-const modalOverlay = document.querySelector('.modal-overlay');
+document.querySelector('body').classList.add('js'); // JavaScript loaded
 
-document.querySelector('body').classList.add('js');
+const keyboard = {
+  tab: 9,
+  escape: 27
+}
+
+const contentWrapper = document.querySelector('.wrapper');
+const modalOverlay = document.querySelector('.modal-overlay');
+const nav = document.querySelector('.primary-nav');
+const navToggle = nav.querySelector('.nav-toggle');
+const menu = nav.querySelector('.menu');
+
+const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
+
+const focusableElements = menu.querySelectorAll(focusableElementsString);
+const firstTabStop = focusableElements[0];
+const lastTabStop = focusableElements[focusableElements.length - 1];
 
 navToggle.setAttribute('aria-expanded', 'false');
-menu.style.display = 'none';
 
 navToggle.addEventListener('click', (e) => {
   let expanded = e.target.getAttribute('aria-expanded') === 'true' || false;
-  
-  if(expanded) {
-    menu.style.display = 'flex';
-     modalOverlay.style.display = 'block';
+
+  if(!expanded) {
+    openMenu(e);
+  } else {
+    closeMenu();
   }
-  e.target.setAttribute('aria-expanded', !expanded);
-//  menu.setAttribute('hidden', !expanded);
-//  if(navToggle.getAttribute('aria-expanded') === 'true'){
-//    menu.setAttribute('aria-expanded', 'false');
-//    document.querySelector('body').style.overflowY = 'visible';
-//  }
-//  else {
-//    menu.setAttribute('aria-expanded', 'true');
-//    modalOverlay.style.display = 'block';
-//    document.querySelector('body').style.overflowY = 'hidden';
-//    
-//    //https://css-tricks.com/prevent-page-scrolling-when-a-modal-is-open/
-//  }
 });
+  
+function openMenu(e) {
+    navToggle.setAttribute('aria-expanded', 'true');
+    modalOverlay.style.display = 'block';
+    contentWrapper.setAttribute('aria-hidden', 'true');
+    document.querySelector('body').style.overflowY = 'hidden';
+    firstTabStop.focus();
+    menu.addEventListener('keydown', trapTabKey);
 
-// keyboard trap
-// hide everything else from screen reader
+  function trapTabKey(e) {
+    if(e.keyCode === keyboard.tab) {
+      // SHIFT + TAB
+      if (e.shiftKey) {
+        if (document.activeElement === firstTabStop) {
+          e.preventDefault();
+          lastTabStop.focus();
+        }
+      // TAB
+      } else {
+        if (document.activeElement === lastTabStop) {
+          e.preventDefault();
+          firstTabStop.focus();
+        }
+      }
+    }
+    // ESCAPE
+    if(e.keyCode === keyboard.escape) {
+      closeMenu();
+    }
+  }
+}
 
-// disable scrolling
+function closeMenu() {
+  navToggle.setAttribute('aria-expanded', 'false');
+  modalOverlay.style.display = 'none';
+  document.querySelector('body').style.overflowY = 'visible';
+  contentWrapper.removeAttribute('aria-hidden');
+  navToggle.focus();
+}
 
 modalOverlay.addEventListener('click', (e) =>{
-  e.target.style.display = 'none';
-  menu.setAttribute('aria-expanded', 'false');
-  document.querySelector('body').style.overflowY = 'visible';
-})
+  closeMenu();
+});
+
+document.addEventListener('focus', (e) => {
+  let win = {
+    top: window.pageYOffset, 
+    bottom: window.pageYOffset + window.innerHeight
+  };
+  
+  let el = {
+    top: window.pageYOffset + e.target.getBoundingClientRect().top, 
+    bottom: window.pageYOffset + e.target.getBoundingClientRect().top + e.target.getBoundingClientRect().height
+  };
+  
+  if(el.top < win.top || el.bottom + 70 > win.bottom)
+    e.target.scrollIntoView();
+}, true)
