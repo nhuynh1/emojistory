@@ -396,7 +396,7 @@ body {
   .sloth {
     top: calc((3.5rem + 48px) * -1);
     background: 
-      url(images/sloth_2.svg) 0% 0%/auto calc(15vh + 3.5rem + 48px) no-repeat;
+      url(images/sloth.svg) 0% 0%/auto calc(15vh + 3.5rem + 48px) no-repeat;
   }
 }
 
