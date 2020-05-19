@@ -30,10 +30,11 @@ navToggle.addEventListener('click', (e) => {
 });
   
 function openMenu(e) {
+    contentWrapper.setAttribute('aria-hidden', 'true'); // hide rest of page from screen reader
+    document.body.style.top = `-${window.scrollY}px`;
+    menu.style.top = ` ${window.scrollY}px`;
+    document.body.classList.add('menu-open');
     navToggle.setAttribute('aria-expanded', 'true');
-    modalOverlay.style.display = 'block';
-    contentWrapper.setAttribute('aria-hidden', 'true');
-    document.querySelector('body').style.overflowY = 'hidden';
     firstTabStop.focus();
     menu.addEventListener('keydown', trapTabKey);
 
@@ -61,16 +62,39 @@ function openMenu(e) {
 }
 
 function closeMenu() {
+  const scrollY = document.body.style.top;
   navToggle.setAttribute('aria-expanded', 'false');
-  modalOverlay.style.display = 'none';
-  document.querySelector('body').style.overflowY = 'visible';
-  contentWrapper.removeAttribute('aria-hidden');
+  document.body.classList.remove('menu-open');
+  document.body.style.top = '';
+  window.scrollTo(0, parseInt(scrollY || '0') * -1); // ensures we return to same scroll position
+  contentWrapper.removeAttribute('aria-hidden'); // ensure screen reader reads page
   navToggle.focus();
 }
 
-modalOverlay.addEventListener('click', (e) =>{
-  closeMenu();
-});
+modalOverlay.addEventListener('click', closeMenu);
+
+const minimizeDialog = document.querySelector('.newsletter-form__minimize');
+minimizeDialog.setAttribute('aria-expanded', 'true');
+
+minimizeDialog.addEventListener('click', (e) => {
+  let toggleOpen = e.target.getAttribute('aria-expanded') === 'true';
+  
+  if(toggleOpen) {
+    e.target.setAttribute('aria-label', 'expand newsletter signup form');
+    document.querySelector('.newsletter-form').style.height = '0px';
+  document.querySelector('.newsletter-form').style.padding = '0px';
+  } else  {
+    e.target.setAttribute('aria-label', 'minimize newsletter signup form');
+    document.querySelector('.newsletter-form').style.height = '70px';
+  document.querySelector('.newsletter-form').style.padding = '15px';
+  }
+  
+  minimizeDialog.setAttribute('aria-expanded', !toggleOpen);
+  
+  
+  
+})
+
 
 document.addEventListener('focus', (e) => {
   let win = {
