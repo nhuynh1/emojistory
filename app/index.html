@@ -11,16 +11,16 @@
 <body>
   <nav class="primary-nav">
     <button type="button" aria-label="main navigation" aria-controls="menu" class="nav-toggle">
-      <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" aria-hidden="true" focusable="false"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
     </button>
     <ul class="menu" id="menu">
-      <li class="menu__item"><a class="primary-nav__link" href="">Home</a></li>
+      <li class="menu__item"><a class="primary-nav__link" href="" aria-current="page">Home</a></li>
       <li class="menu__item"><a class="primary-nav__link" href="">About</a></li>
       <li class="menu__item"><a class="primary-nav__link" href="">Contact</a></li>
     </ul>
   </nav>
   <div class="wrapper">
-    <main class="main" style="position: relative;">
+    <main class="main">
        <section class="cta">
         <h1 class="main__title">What sound does a giraffe make?</h1>
         <p class="main__text">A free e-book for curious people young and old. Download for free, no email address required</p>
@@ -33,29 +33,20 @@
     <footer class="footer">
       <h2 class="footer__header">Images on this website</h2>
       <p class="footer__text">Animal images on this website are <a href="" class="footer__links">Twitter's open source emojis</a></p>
-      <div class="newsletter-form" aria-labelledby="signup" role="dialog">
-       <!-- should this button be outside the dialog -->
-        <button class="newsletter-form__minimize" aria-label="minimize newsletter signup form"></button>
-        <form class="newsletter-form-form">
-         <h2 class="newsletter-form__header" id="signup">Get notified of new stories</h2>
-          <input class="newsletter-form__text" type="text" id="email" aria-label="email address" placeholder="email address">
-          <button class="newsletter-form__submit" type="submit">submit</button>
-        </form>
-        
+      
+      <div class="newsletter-wrapper">
+        <button type="button" class="newsletter-form__minimize" aria-label="toggle newsletter signup form"></button>
+        <div class="newsletter-dialog" role="dialog" id="newsletter-signup" aria-labelledby="signup">
+          <form class="newsletter-form">
+           <h2 class="newsletter-form__header" id="signup">Get notified of new stories</h2>
+            <input class="newsletter-form__text" type="text" id="email" aria-label="email address" placeholder="email address">
+            <button class="newsletter-form__submit" type="submit">submit</button>
+          </form>
+        </div>
       </div>
       
       <span class="copyright">2020 Nancy Huynh</span>
     </footer>
-<!--
-    <div class="newsletter-form" aria-labelledby="signup" role="dialog">
-        <h2 class="newsletter-form__header" id="signup">Get notified of new stories</h2>
-        <form>
-          <input class="newsletter-form__text" type="text" id="email" aria-label="email address" placeholder="email address">
-          <button class="newsletter-form__submit" type="submit">submit</button>
-        </form>
-        <button class="newsletter-form__minimize" aria-label="close"></button>
-    </div>
--->
 </div>
 
 <div class="modal-overlay"></div>

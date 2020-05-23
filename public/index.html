@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>What sound does a giraffe make?</title>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <nav class="primary-nav">
+        <button class="nav-toggle" type="button" aria-label="main navigation" aria-controls="menu">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewbox="0 0 24 24" width="24" aria-hidden="true" focusable="false">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+          </svg>
+        </button>
+        <ul class="menu" id="menu">
+          <li class="menu__item"><a class="primary-nav__link" href="index.html" aria-current="page">Home</a></li>
+          <li class="menu__item"><a class="primary-nav__link" href="about.html">About</a></li>
+          <li class="menu__item"><a class="primary-nav__link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="wrapper">
+        <main class="main">
+          <section class="cta">
+            <h1 class="main__title">What sound does a giraffe make?</h1>
+            <p class="main__text">A free e-book for curious people young and old. Download for free, no email address required</p><a class="download-button" href="" download="">Download Book (PDF)</a>
+          </section>
+          <div class="background grasses"></div>
+          <div class="background sloth"></div>
+          <div class="background bushes-giraffe"></div>
+        </main>
+        <footer class="footer">
+          <h2 class="footer__header">Images on this website</h2>
+          <p class="footer__text">Animal images on this website are <a class="footer__links" href="">Twitter&apos;s open source emojis</a></p>
+          <div class="newsletter-wrapper">
+            <button class="newsletter-form__minimize" type="button" aria-label="toggle newsletter signup form"></button>
+            <div class="newsletter-dialog" id="newsletter-signup" role="dialog" aria-labelledby="signup">
+              <form class="newsletter-form">
+                <h2 class="newsletter-form__header" id="signup">Get notified of new stories</h2>
+                <input class="newsletter-form__text" id="email" type="email" aria-label="email address" placeholder="email address">
+                <button class="newsletter-form__submit button-submit" type="submit">submit</button>
+              </form>
+            </div>
+          </div><span class="copyright">©2020 Nancy Huynh</span>
+        </footer>
+      </div>
+      <div class="modal-overlay"></div>
+      <script src="script.js"></script>
+      <!-- - will need to add script block and split scripts for home and default-->
+    </div>
+  </body>
+</html>

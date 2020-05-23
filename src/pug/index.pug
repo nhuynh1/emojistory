@@ -1,0 +1,27 @@
+extends templates/layout.pug
+
+block content
+  main.main
+    section.cta
+        h1.main__title What sound does a giraffe make?
+        p.main__text
+          | A free e-book for curious people young and old. Download for free, no email address required
+        a.download-button(href='' download='') Download Book (PDF)
+    .background.grasses
+    .background.sloth
+    .background.bushes-giraffe
+
+block footer
+  footer.footer
+    h2.footer__header Images on this website
+    p.footer__text
+      | Animal images on this website are 
+      a.footer__links(href='') Twitter&apos;s open source emojis
+    .newsletter-wrapper
+      button.newsletter-form__minimize(type='button' aria-label='toggle newsletter signup form')
+      #newsletter-signup.newsletter-dialog(role='dialog' aria-labelledby='signup')
+        form.newsletter-form
+          h2#signup.newsletter-form__header Get notified of new stories
+          input#email.newsletter-form__text(type='email' aria-label='email address' placeholder='email address')
+          button(type='submit').newsletter-form__submit.button-submit submit
+    span.copyright ©2020 Nancy Huynh

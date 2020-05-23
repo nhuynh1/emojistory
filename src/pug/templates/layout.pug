@@ -1,0 +1,31 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='style.css')
+    title What sound does a giraffe make?
+  body
+    .page-wrapper
+      nav.primary-nav
+        button.nav-toggle(type='button' aria-label='main navigation' aria-controls='menu')
+          svg(xmlns='http://www.w3.org/2000/svg' height='24' viewbox='0 0 24 24' width='24' aria-hidden='true' focusable='false')
+            path(d='M0 0h24v24H0z' fill='none')
+            path(d='M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z')
+        ul#menu.menu
+          li.menu__item
+            a.primary-nav__link(href='index.html' aria-current='page') Home
+          li.menu__item
+            a.primary-nav__link(href='about.html') About
+          li.menu__item
+            a.primary-nav__link(href='contact.html') Contact
+      .wrapper
+        block content
+
+        block footer
+          footer.footer
+            span.copyright ©2020 Nancy Huynh
+
+      .modal-overlay
+      script(src='script.js')
+      // - will need to add script block and split scripts for home and default

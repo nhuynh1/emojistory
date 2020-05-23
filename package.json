@@ -4,11 +4,17 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "browser-sync start --server 'app' --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --port 7777 --browser 'Firefox Developer Edition'"
+    "start": "browser-sync start --server 'public' --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --port 7777 --browser 'Firefox Developer Edition'"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.26.7"
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-pug": "^4.0.1"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "pug-cli": "^1.0.0-alpha6"
   }
 }

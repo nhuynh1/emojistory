@@ -91,9 +91,67 @@ MinimizableDialog.prototype.toggleMinimize = function() {
   // if we're expanding then set focus to the dialog
 }
 
-let newsletterDialog = new MinimizableDialog(
-                          document.querySelector('.newsletter-form__minimize'),
-                          document.querySelector('.newsletter-dialog'));
+//let newsletterDialog = new MinimizableDialog(
+//                          document.querySelector('.newsletter-form__minimize'),
+//                          document.querySelector('.newsletter-dialog'));
+
+
+  window.addEventListener("DOMContentLoaded", function() {
+
+    // get the form elements defined in your form HTML above
+    
+    var form = document.getElementById("contact-form");
+//    var button = document.getElementById("my-form-button");
+//    var status = document.getElementById("my-form-status");
+    var button = document.querySelector('.contact-form__submit');
+    var status = document.querySelector('.contact-form-status');
+    
+    console.log({form, button, status})
+    
+    // Success and Error functions for after the form is submitted
+    
+    function success() {
+      form.reset();
+      button.style = "display: none ";
+      form.style = "display: none ";
+      status.innerHTML = "Thanks for your message!";
+    }
+
+    function error() {
+      status.innerHTML = "Oops! There was a problem sending your message. Feel free to email me emojistory@gmail.com";
+    }
+
+    // handle the form submission event
+
+    form.addEventListener("submit", function(ev) {
+      ev.preventDefault();
+      
+      // field validations needed
+      
+      var data = new FormData(form);
+//      console.log({data, method: form.method, action: form.action, success, error});
+//      ajax(form.method, form.action, data, success, error);
+      error();
+    });
+  });
+  
+  // helper function for sending an AJAX request
+
+  function ajax(method, url, data, success, error) {
+    var xhr = new XMLHttpRequest();
+    xhr.open(method, url);
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState !== XMLHttpRequest.DONE) return;
+      if (xhr.status === 200) {
+        success(xhr.response, xhr.responseType);
+      } else {
+        error(xhr.status, xhr.response, xhr.responseType);
+      }
+    };
+    xhr.send(data);
+  }
+
 
 //const minimizeDialog = document.querySelector('.newsletter-form__minimize');
 //minimizeDialog.setAttribute('aria-expanded', 'true');

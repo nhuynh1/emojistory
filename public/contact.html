@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>What sound does a giraffe make?</title>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <nav class="primary-nav">
+        <button class="nav-toggle" type="button" aria-label="main navigation" aria-controls="menu">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewbox="0 0 24 24" width="24" aria-hidden="true" focusable="false">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+          </svg>
+        </button>
+        <ul class="menu" id="menu">
+          <li class="menu__item"><a class="primary-nav__link" href="index.html" aria-current="page">Home</a></li>
+          <li class="menu__item"><a class="primary-nav__link" href="about.html">About</a></li>
+          <li class="menu__item"><a class="primary-nav__link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="wrapper">
+        <main class="main">
+          <section class="content">
+            <h1 class="main__title">contact</h1><span class="contact-form-status"></span>
+            <form class="contact-form" action="https://formspree.io/xgenobbq" method="POST" id="contact-form">
+              <p>Please fill out the form and I'll be in touch.</p>
+              <label class="contact-form__label" id="contact-email">email address
+                <input class="contact-form__text" type="email" name="email">
+              </label>
+              <label class="contact-form__label" id="contact-name">name
+                <input class="contact-form__text" type="text" name="name">
+              </label>
+              <label class="contact-form__label" id="contact-message">message
+                <textarea class="contact-form__textarea" name="message"></textarea>
+              </label>
+              <button class="contact-form__submit button-submit" type="submit">submit</button>
+            </form>
+          </section>
+        </main>
+        <footer class="footer"><span class="copyright">©2020 Nancy Huynh</span></footer>
+      </div>
+      <div class="modal-overlay"></div>
+      <script src="script.js"></script>
+      <!-- - will need to add script block and split scripts for home and default-->
+    </div>
+  </body>
+</html>
