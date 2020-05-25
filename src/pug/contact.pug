@@ -1,16 +1,21 @@
 extends templates/layout.pug
 
 block content
-  main.main
+  main.main.contact
     section.content
       h1.main__title contact
-      span.contact-form-status
-      form(action="https://formspree.io/xgenobbq" method="POST").contact-form#contact-form
+      div(aria-live="assertive" role="alert").form-errors
+          ul.form-errors__list
+      span(aria-live="assertive").contact-form-status
+      form(action="https://formspree.io/xgenobbq" method="POST" novalidate).contact-form#contact-form
         p Please fill out the form and I'll be in touch.
-        label(id="contact-email").contact-form__label email address
-          input(type="email" name="email").contact-form__text
+        label(id="contact-email").contact-form__label email address (required)
+          input(type="email" name="email" title="email address" required).contact-form__text
         label(id="contact-name").contact-form__label name
-          input(type="text" name="name").contact-form__text
-        label(id="contact-message").contact-form__label message
-          textarea(name="message").contact-form__textarea
+          input(type="text" name="name" title="name").contact-form__text
+        label(id="contact-message").contact-form__label message (required)
+          textarea(name="message" title="message" required).contact-form__textarea
         button(type="submit").contact-form__submit.button-submit submit
+        
+block scripts
+  script(src='scripts/contactForm.js')

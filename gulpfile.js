@@ -26,7 +26,7 @@ function watch() {
     });
 
     gulp.watch('public/*.css', gulp.series(reload));
-    gulp.watch('public/*.js', gulp.series(reload));
+    gulp.watch('public/scripts/*.js', gulp.series(reload));
     gulp.watch('src/pug/templates/*.pug', gulp.series(log, buildHTML, reload));
 	  gulp.watch('src/pug/*.pug', gulp.series(buildHTML, reload)); 
     /* note: browser sync does not work properly if missing html, head, body tags */

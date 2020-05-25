@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&amp;family=Raleway:wght@400;600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>What sound does a giraffe make?</title>
   </head>
@@ -22,19 +23,22 @@
         </ul>
       </nav>
       <div class="wrapper">
-        <main class="main">
+        <main class="main contact">
           <section class="content">
-            <h1 class="main__title">contact</h1><span class="contact-form-status"></span>
-            <form class="contact-form" action="https://formspree.io/xgenobbq" method="POST" id="contact-form">
+            <h1 class="main__title">contact</h1>
+            <div class="form-errors" aria-live="assertive" role="alert">
+              <ul class="form-errors__list"></ul>
+            </div><span class="contact-form-status" aria-live="assertive"></span>
+            <form class="contact-form" action="https://formspree.io/xgenobbq" method="POST" novalidate id="contact-form">
               <p>Please fill out the form and I'll be in touch.</p>
-              <label class="contact-form__label" id="contact-email">email address
-                <input class="contact-form__text" type="email" name="email">
+              <label class="contact-form__label" id="contact-email">email address (required)
+                <input class="contact-form__text" type="email" name="email" title="email address" required>
               </label>
               <label class="contact-form__label" id="contact-name">name
-                <input class="contact-form__text" type="text" name="name">
+                <input class="contact-form__text" type="text" name="name" title="name">
               </label>
-              <label class="contact-form__label" id="contact-message">message
-                <textarea class="contact-form__textarea" name="message"></textarea>
+              <label class="contact-form__label" id="contact-message">message (required)
+                <textarea class="contact-form__textarea" name="message" title="message" required></textarea>
               </label>
               <button class="contact-form__submit button-submit" type="submit">submit</button>
             </form>
@@ -43,8 +47,9 @@
         <footer class="footer"><span class="copyright">©2020 Nancy Huynh</span></footer>
       </div>
       <div class="modal-overlay"></div>
-      <script src="script.js"></script>
-      <!-- - will need to add script block and split scripts for home and default-->
     </div>
+    <!-- - script for all pages-->
+    <script src="scripts/script.js"></script>
+    <script src="scripts/contactForm.js"></script>
   </body>
 </html>
