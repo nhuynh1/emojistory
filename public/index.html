@@ -23,10 +23,10 @@
         </ul>
       </nav>
       <div class="wrapper">
-        <main class="main">
+        <main class="main home">
           <section class="cta">
             <h1 class="main__title">What sound does a giraffe make?</h1>
-            <p class="main__text">A free e-book for curious people young and old. Download for free, no email address required</p><a class="download-button" href="" download="">Download Book (PDF)</a>
+            <p class="main__text">A free e-book for curious people young and old. Download for free, no email address required</p><a class="download-button" href="https://nhlabs.imfast.io/What_sound_does_a_giraffe_make.pdf" download="">Download Book (PDF)</a>
           </section>
           <div class="background grasses"></div>
           <div class="background sloth"></div>
@@ -38,9 +38,9 @@
           <div class="newsletter-wrapper">
             <button class="newsletter-form__minimize" type="button" aria-label="toggle newsletter signup form"></button>
             <div class="newsletter-dialog" id="newsletter-signup" role="dialog" aria-labelledby="signup">
-              <form class="newsletter-form">
+              <form class="newsletter-form" action="/.netlify/functions/subscribe-mc" method="post" id="subscribeMC"><span class="form-status" aria-live="assertive" role="alert"></span>
                 <h2 class="newsletter-form__header" id="signup">Get notified of new stories</h2>
-                <input class="newsletter-form__text" id="email" type="email" aria-label="email address" placeholder="email address">
+                <input class="newsletter-form__text" id="email" type="email" aria-label="email address" placeholder="email address" name="email" required>
                 <button class="newsletter-form__submit button-submit" type="submit">submit</button>
               </form>
             </div>
@@ -49,7 +49,6 @@
       </div>
       <div class="modal-overlay"></div>
     </div>
-    <!-- - script for all pages-->
     <script src="scripts/script.js"></script>
     <script src="scripts/newsletterForm.js"></script>
   </body>

@@ -4,17 +4,37 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "browser-sync start --server 'public' --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --port 7777 --browser 'Firefox Developer Edition'"
+    "start": "browser-sync start --server 'public' --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --port 7777 --browser 'Firefox Developer Edition'",
+    "build:site": "gulp build",
+    "build:functions": "netlify-lambda build src/netlify-functions",
+    "serve:site": "http-server ./public --proxy http://localhost:9000 -c-1",
+    "serve:functions": "netlify-lambda serve src/netlify-functions",
+    "serve:browsersync": "gulp serve",
+    "build": "npm-run-all --parallel build:**",
+    "serve": "npm-run-all --parallel serve:**"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^9.8.0",
     "browser-sync": "^2.26.7",
+    "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
-    "gulp-pug": "^4.0.1"
+    "gulp-postcss": "^8.0.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.5",
+    "http-server": "^0.12.3",
+    "npm-run-all": "^4.1.5"
   },
   "dependencies": {
+    "base-64": "^0.1.0",
+    "crypto-js": "^4.0.0",
     "dotenv": "^8.2.0",
+    "netlify-lambda": "^1.6.3",
+    "node-fetch": "^2.6.0",
     "pug-cli": "^1.0.0-alpha6"
-  }
+  },
+  "browserslist": [
+    "defaults"
+  ]
 }

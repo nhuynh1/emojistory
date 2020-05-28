@@ -1,12 +1,12 @@
 extends templates/layout.pug
 
 block content
-  main.main
+  main.main.home
     section.cta
         h1.main__title What sound does a giraffe make?
         p.main__text
           | A free e-book for curious people young and old. Download for free, no email address required
-        a.download-button(href='' download='') Download Book (PDF)
+        a.download-button(href='https://nhlabs.imfast.io/What_sound_does_a_giraffe_make.pdf' download='') Download Book (PDF)
     .background.grasses
     .background.sloth
     .background.bushes-giraffe
@@ -20,9 +20,10 @@ block footer
     .newsletter-wrapper
       button.newsletter-form__minimize(type='button' aria-label='toggle newsletter signup form')
       #newsletter-signup.newsletter-dialog(role='dialog' aria-labelledby='signup')
-        form.newsletter-form
+        form(action='/.netlify/functions/subscribe-mc' method='post')#subscribeMC.newsletter-form
+          span(aria-live="assertive" role="alert").form-status
           h2#signup.newsletter-form__header Get notified of new stories
-          input#email.newsletter-form__text(type='email' aria-label='email address' placeholder='email address')
+          input#email.newsletter-form__text(type='email' aria-label='email address' placeholder='email address' name='email' required)
           button(type='submit').newsletter-form__submit.button-submit submit
     span.copyright ©2020 Nancy Huynh
 

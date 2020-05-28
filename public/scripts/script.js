@@ -72,22 +72,3 @@ function closeMenu() {
 }
 
 modalOverlay.addEventListener('click', closeMenu);
-
-
-
-
-
-//document.addEventListener('focus', (e) => {
-//  let win = {
-//    top: window.pageYOffset, 
-//    bottom: window.pageYOffset + window.innerHeight
-//  };
-//  
-//  let el = {
-//    top: window.pageYOffset + e.target.getBoundingClientRect().top, 
-//    bottom: window.pageYOffset + e.target.getBoundingClientRect().top + e.target.getBoundingClientRect().height
-//  };
-//  
-//  if(el.top < win.top || el.bottom + 70 > win.bottom)
-//    e.target.scrollIntoView();
-//}, true)
