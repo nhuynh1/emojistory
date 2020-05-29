@@ -5,6 +5,7 @@ const autoprefixer = require('autoprefixer');
 const postcss = require('gulp-postcss');
 const sourcemaps = require('gulp-sourcemaps');
 const cssnano = require('cssnano');
+const babel = require('gulp-babel');
 
 function serve(done) {
   browserSync.init({
@@ -39,7 +40,9 @@ function buildHTML() {
 }
 
 function buildJS() {
+  const presets = ['@babel/preset-env'];
   return gulp.src('src/scripts/*.js')
+    .pipe(babel({ presets }))
     .pipe(gulp.dest('public/scripts/'));
 }
 

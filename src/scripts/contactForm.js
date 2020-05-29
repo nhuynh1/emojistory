@@ -69,8 +69,8 @@
       }
       
       let data = new FormData($form); // data for AJAX request
-      // ajax(form.method, form.action, data, success, error); // send AJAZ request to formspree.io
-      success(); // simulate success
+       ajax($form.method, $form.action, data, success, error); // send AJAZ request to formspree.io
+//      success(); // simulate success
     });
   });
   

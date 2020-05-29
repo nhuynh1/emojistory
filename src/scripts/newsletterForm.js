@@ -17,13 +17,12 @@ let newsletterDialog = new MinimizableDialog(
                           document.querySelector('.newsletter-dialog'));
 
 const form = document.querySelector('#subscribeMC');
-const status = document.querySelector('.form-status');
 
 form.addEventListener('submit', subscribe);
 
 function subscribe(e) {
   e.preventDefault();
-
+  const status = document.querySelector('.form-status');
   fetch(form.action, {
     method: form.method,
     body: `email=${form.email.value.trim()}`
