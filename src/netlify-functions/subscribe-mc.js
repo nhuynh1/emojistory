@@ -2,8 +2,6 @@ import fetch from "node-fetch";
 import { encode } from "base-64";
 import { MD5 } from "crypto-js";
 const queryString = require('querystring');
-const dotenv = require('dotenv');
-dotenv.config();
 
 // API VARIABLES
 const { MCAPIKEY, MCLIST } = process.env;

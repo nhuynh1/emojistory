@@ -23,6 +23,7 @@ form.addEventListener('submit', subscribe);
 function subscribe(e) {
   e.preventDefault();
   const status = document.querySelector('.form-status');
+  status.textContent = 'Subscribing...';
   fetch(form.action, {
     method: form.method,
     body: `email=${form.email.value.trim()}`
