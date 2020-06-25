@@ -1,5 +1,9 @@
 extends templates/layout.pug
+include mixins/_navigation.pug
 
+block navigation
+  +navMenu('About')
+  
 block content
   main.main
     section.content

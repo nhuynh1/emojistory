@@ -75,8 +75,14 @@ button {
   color: white;
 }
 
-.primary-nav__link:hover::after, .primary-nav__link:focus::after {
+.primary-nav__link:hover::after, 
+.primary-nav__link:focus::after, 
+.primary-nav__link[aria-current]:hover::after{
   background: white;
+}
+
+.primary-nav__link[aria-current]::after {
+  background: var(--navy);
 }
 
 .nav-toggle {
@@ -538,6 +544,11 @@ body {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 5vh;
+  }
+  
+  .js .cta {
+    padding-top: 15vh;
   }
   
   .main__title {
@@ -578,11 +589,6 @@ body {
     right: 0px;
   }
   
-  .menu-open .wrapper {
-    /* prevent page reflow for typical browser scrollbar widths */
-    padding-right: 15px; 
-  }
-  
   .modal-overlay {
     position: fixed;
     top: 0;
@@ -599,7 +605,7 @@ body {
     display: block;
   }
   
-  .primary-nav {
+  .js .primary-nav {
     z-index: 4;
     width: 50%;
     margin-left: auto;
@@ -655,6 +661,14 @@ body {
     box-shadow: none;
   }
   
+  .js .primary-nav__link[aria-current]::after {
+    background: none;
+  }
+  
+  .js .primary-nav__link[aria-current]:focus::after {
+    background: white;
+  }
+  
   /**************** Mobile Backgrounds ****************/
   
   .grasses {
@@ -662,6 +676,10 @@ body {
   }
   
   .sloth {
+    background: none;
+  }
+  
+  .js .sloth {
     top: calc((3.5rem + 48px) * -1);
     background: 
       url(images/sloth.svg) 0% 0%/auto calc(15vh + 3.5rem + 48px) no-repeat;

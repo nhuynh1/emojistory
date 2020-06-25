@@ -1,0 +1,13 @@
+mixin navMenu(active)
+  nav.primary-nav
+    button.nav-toggle(type='button' aria-label='main navigation' aria-controls='menu')
+      svg(xmlns='http://www.w3.org/2000/svg' height='24' viewbox='0 0 24 24' width='24' aria-hidden='true' focusable='false')
+        path(d='M0 0h24v24H0z' fill='none')
+        path(d='M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z')
+    ul#menu.menu
+      li.menu__item
+        a.primary-nav__link(href='index.html' aria-current=active == 'Home' ? 'page' : false) Home
+      li.menu__item
+        a.primary-nav__link(href='about.html' aria-current=active == 'About' ? 'page' : false) About
+      li.menu__item
+        a.primary-nav__link(href='contact.html' aria-current=active == 'Contact' ? 'page' : false) Contact

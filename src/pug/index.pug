@@ -1,4 +1,8 @@
 extends templates/layout.pug
+include mixins/_navigation.pug
+
+block navigation
+  +navMenu('Home')
 
 block content
   main.main.home
