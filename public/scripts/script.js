@@ -11,6 +11,7 @@ var modalOverlay = document.querySelector('.modal-overlay');
 var nav = document.querySelector('.primary-nav');
 var navToggle = nav.querySelector('.nav-toggle');
 var menu = nav.querySelector('.menu');
+var closeButton = menu.querySelector('.close-button');
 var focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
 var focusableElements = menu.querySelectorAll(focusableElementsString);
 var firstTabStop = focusableElements[0];
@@ -73,3 +74,4 @@ function closeMenu() {
 }
 
 modalOverlay.addEventListener('click', closeMenu);
+closeButton.addEventListener('click', closeMenu);

@@ -50,8 +50,7 @@ function watch() {
 
     gulp.watch('src/css/*.css', gulp.series(buildCSS, reload));
     gulp.watch('src/scripts/*.js', gulp.series(buildJS, reload));
-    gulp.watch('src/pug/templates/*.pug', gulp.series(buildHTML, reload));
-	  gulp.watch('src/pug/*.pug', gulp.series(buildHTML, reload)); 
+    gulp.watch('src/pug/**/*.pug', gulp.series(buildHTML, reload));
     /* note: browser sync does not work properly if missing html, head, body tags */
 }
 

@@ -22,19 +22,37 @@ ul {
 button {
   cursor: pointer;
 }
+
+/*** UTILITY STYLES ***/
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-/*  border: solid 1px red;*/
 }
 
+.visually-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+/*** BASE NAVIGATION ***/
 .primary-nav {
   position: relative;
   z-index: 3;
   padding-top: 3.5rem;
   display: block; 
   background: transparent;
+}
+
+.close-button {
+  display: none;
 }
 
 .menu {
@@ -105,6 +123,7 @@ button {
 
 .nav-toggle:focus, .nav-toggle:hover {
   background-color: var(--blue);
+  outline-color: white;
 }
 
 .nav-toggle:focus svg, .nav-toggle:hover svg {
@@ -611,6 +630,16 @@ body {
     margin-left: auto;
   }
   
+  .js .close-button {
+    display: block;
+    width: 48px;
+    height: 48px;
+    background: url('images/close-24px.svg') no-repeat;
+    border: none;
+    margin: 0.5rem 0.5rem 1rem 0;
+    outline-color: white;
+  }
+  
   .menu {
     flex-direction: column;
     align-items: center;
@@ -650,6 +679,12 @@ body {
   
   .menu__item:nth-child(1) {
     margin-left: 0;
+  }
+  
+  .primary-nav__link {
+    font-size: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1.75rem;
   }
   
   .js .primary-nav__link {

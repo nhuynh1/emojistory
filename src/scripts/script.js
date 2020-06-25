@@ -10,6 +10,7 @@ const modalOverlay = document.querySelector('.modal-overlay');
 const nav = document.querySelector('.primary-nav');
 const navToggle = nav.querySelector('.nav-toggle');
 const menu = nav.querySelector('.menu');
+const closeButton = menu.querySelector('.close-button');
 
 const focusableElementsString = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
 
@@ -72,3 +73,4 @@ function closeMenu() {
 }
 
 modalOverlay.addEventListener('click', closeMenu);
+closeButton.addEventListener('click', closeMenu);
